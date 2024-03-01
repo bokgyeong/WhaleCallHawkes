@@ -554,54 +554,6 @@ vec sampleBranching(vec ts, vec marks, mat distmat, vec lam0, vec zeta, double e
 }
 
 
-// [[Rcpp::export]]
-uvec test(int i, vec ts, vec marks, mat distmat, vec lam0, vec zeta, double eta, double phi, double lb_eta){
-  double ubtdiff = 1/lb_eta * 3;
-  uvec dummy = find( ( ts < ts[i] ) && ( abs(ts[i] - ts) < ubtdiff ) );
-  return dummy;
-}
-
-
-// [[Rcpp::export]]
-vec sampleBranchingTrunc(vec ts, vec marks, mat distmat, vec lam0, vec zeta, double eta, double phi, double lb_eta) {
-  int n = ts.size(), l, k, parent, ndummy;
-  double temp, ubtdiff = 1/lb_eta * 5;
-  vec branching = zeros(n), probs;
-  uvec dummy;
-  
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  
-  for (int i = 1; i < n; i++) {
-    
-    k = marks[i];
-    dummy = find( ( ts < ts[i] ) && ( abs(ts[i] - ts) < ubtdiff ) );
-    ndummy = dummy.size();
-    
-    if(ndummy == 0){
-      branching[i] = 0;
-      
-    } else {
-      probs = zeros(ndummy + 1);
-      probs[0] = lam0[i];
-      
-      for (int j = 0; j < ndummy; j++) {
-        l = marks[ dummy[j] ];
-        temp = zeta[l] * compH(ts[i] - ts[ dummy[j] ], distmat(l,k), eta, phi);
-        probs[j+1] = temp;
-      }
-      probs = probs / sum(probs);
-      std::discrete_distribution<> d(probs.begin(), probs.end());
-      
-      parent = d(gen);
-      branching[i] = parent;
-    }
-  }
-  
-  return branching;
-}
-
-
 
 
 // ============================================================================-
@@ -1272,8 +1224,7 @@ List fitNHPPSE(int niter, vec ts, vec marks, List Xm, double maxT,
   for(int s = 0; s < niter; s++) {
     
     // Gibbs update for latent branching structure
-    // branching = sampleBranching(ts, marks, distmat, lam0, zeta, eta, phi);
-    branching = sampleBranchingTrunc(ts, marks, distmat, lam0, zeta, eta, phi, lb_eta);
+    branching = sampleBranching(ts, marks, distmat, lam0, zeta, eta, phi);
     postBranching.row(s) = trans( branching );
     if(s == 0){ Rprintf("sampled braching structure\n"); }
     
@@ -1687,8 +1638,7 @@ List fitLGCPSE(int niter, vec ts, vec marks, List Xm, double maxT,
   for(int s = 0; s < niter; s++) {
     
     // Gibbs update for latent branching structure
-    // branching = sampleBranching(ts, marks, distmat, lam0, zeta, eta, phi);
-    branching = sampleBranchingTrunc(ts, marks, distmat, lam0, zeta, eta, phi, lb_eta);
+    branching = sampleBranching(ts, marks, distmat, lam0, zeta, eta, phi);
     postBranching.row(s) = trans( branching );
     if(s == 0){ Rprintf("sampled braching structure\n"); }
     

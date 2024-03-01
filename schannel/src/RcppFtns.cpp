@@ -376,44 +376,6 @@ vec sampleBranching(vec ts, vec lam0, double alpha, double eta) {
 }
 
 
-// Sample latent branching structure with truncation
-// [[Rcpp::export]]
-vec sampleBranchingTrunc(vec ts, vec lam0, double alpha, double eta, double lb_eta) {
-  int n = ts.size(), parent, ndummy;
-  double temp, ubtdiff = 1/lb_eta * 3;
-  vec branching = zeros(n), probs;
-  uvec dummy;
-  
-  std::random_device rd;
-  std::mt19937 gen(rd());
-  
-  for (int i = 1; i < n; i++) {
-    
-    dummy = find( ( ts < ts[i] ) && ( abs(ts[i] - ts) < ubtdiff ) );
-    ndummy = dummy.size();
-    
-    if(ndummy == 0){
-      branching[i] = 0;
-      
-    } else {
-      probs = zeros(ndummy + 1);
-      probs[0] = lam0[i];
-      
-      for (int j = 0; j < ndummy; j++) {
-        temp = alpha * comph(ts[i] - ts[ dummy[j] ], eta);
-        probs[j+1] = temp;
-      }
-      probs = probs / sum(probs);
-      std::discrete_distribution<> d(probs.begin(), probs.end());
-      
-      parent = d(gen);
-      branching[i] = parent;
-    }
-  }
-  
-  return branching;
-}
-
 
 
 // ============================================================================-
@@ -550,8 +512,7 @@ List fitNHPPSE(int niter, vec ts, mat Xm, double maxT, vec knts,
   for(int s = 0; s < niter; s++) {
     
     // Gibbs update for latent branching structure
-    // branching = sampleBranching(ts, lam0, alpha, eta);
-    branching = sampleBranchingTrunc(ts, lam0, alpha, eta, lb_eta);
+    branching = sampleBranching(ts, lam0, alpha, eta);
     postBranching.row(s) = trans( branching );
     
     dummy_background = find( branching == 0 );
@@ -920,8 +881,7 @@ List fitLGCPSE(int niter, vec ts, mat Xm, double maxT, vec knts, mat tdiffm,
   for(int s = 0; s < niter; s++) {
     
     // Gibbs update for latent branching structure
-    // branching = sampleBranching(ts, lam0, alpha, eta);
-    branching = sampleBranchingTrunc(ts, lam0, alpha, eta, lb_eta);
+    branching = sampleBranching(ts, lam0, alpha, eta);
     postBranching.row(s) = trans( branching );
     
     dummy_background = find( branching == 0 );
