@@ -1,0 +1,136 @@
+rm(list=ls())
+library(coda); library(tidyverse); library(egg); library(grid)
+# library(ggh4x) # facet_grid2
+library(spgs) # chisq..test
+library(batchmeans); library(foreach)
+library(xtable)
+get_legend<-function(myggplot){
+  tmp <- ggplot_gtable(ggplot_build(myggplot))
+  leg <- which(sapply(tmp$grobs, function(x) x$name) == "guide-box")
+  legend <- tmp$grobs[[leg]]
+  return(legend)
+}
+
+
+fits = c('NHPP', 'LGCP', 'NHPPSE', 'LGCPSE')
+
+data.comp = c()
+data.d = c()
+for(j in 1:length(fits)){
+  load(paste0('nopp/rtct/nopp', fits[j], 'rtct.RData'))
+  print(paste0(fits[j], ': n = ', nrow(postCompen)))
+  
+  data.comp = rbind(data.comp, data.frame(fit = fits[j], ts = ts[1:nrow(postCompen)], lb = postCompen[1:nrow(postCompen),1], t = postCompen[1:nrow(postCompen),2], ub = postCompen[1:nrow(postCompen),3]))
+  data.d = rbind(data.d, data.frame(fit = fits[j], lb = postCompen[1:nrow(postCompen),4], d = postCompen[1:nrow(postCompen),5], ub = postCompen[1:nrow(postCompen),6]))
+}
+
+fitlabs = c('(i) NHPP', '(ii) NHPP+GP', '(iii) NHPP+CC', '(iv) NHPP+GP+CC')
+
+data.comp$fit = factor(data.comp$fit, levels = fits, labels = fitlabs)
+data.d$fit = factor(data.d$fit, levels = fits, labels = fitlabs)
+
+
+
+# -----------------------------------------------------------------------------=
+# Q-Q plot ----
+# -----------------------------------------------------------------------------=
+
+data.qq = data.d %>% 
+  group_by(fit) %>% 
+  reframe(order = order(d), Sample = d[order], lb = lb[order], ub = ub[order],
+            Theoretical = log(length(d)) - log(length(d) - (1:length(d)-0.5)))
+
+range.qq = data.qq %>%
+  group_by(fit) %>% 
+  reframe(x = c(0, ifelse( max(Sample) > max(Theoretical), min(c(max(Sample), max(Theoretical))), max(c(max(Sample), max(Theoretical))))),
+          y = c(0, ifelse( max(Sample) > max(Theoretical), min(c(max(Sample), max(Theoretical))), max(c(max(Sample), max(Theoretical))))))
+
+
+## range of x-axis and y-axis ----
+# new.data.qq = data.qq %>% 
+#   group_by(fit) %>% 
+#   mutate(newub = ifelse(ub > max(Sample), max(max(Sample), max(Theoretical)), ub))
+
+
+## common axis ---
+groups = list(c(2, 3, 4))
+dummy = c()
+for(i in 1:length(groups)){
+
+  range_ = c(0, data.qq %>%
+               filter(fit %in% fitlabs[groups[[i]]]) %>%
+               select(Sample, Theoretical) %>%
+               max())
+
+  for(j in groups[[i]]){
+    dummy = rbind(dummy, data.frame(fit = fitlabs[j], Sample = range_, Theoretical = range(range.qq$x)))
+  }
+}
+
+new.data.qq = data.qq %>%
+  group_by(fit) %>%
+  mutate(newub = ifelse((fit %in% fitlabs[groups[[1]]]) & (ub > max(dummy$Sample)), 
+                        max(max(dummy$Sample), max(Theoretical)), ub))
+
+
+
+## Q-Q plot with uncertainty band ----
+plot.qqband = new.data.qq %>% 
+  ggplot(aes(x = Theoretical)) +
+  geom_ribbon(aes(ymin = lb, ymax = newub), fill = "grey70", alpha = 0.8) +
+  geom_point(aes(y = Sample), size = 0.5) +
+  geom_line(aes(x = x, y = y), range.qq) +
+  geom_blank(aes(x = Theoretical, y = Sample), dummy) +
+  facet_wrap(~fit, scales = 'free', nrow = 1)
+plot.qqband
+
+
+ggsave(plot = plot.qqband, device = cairo_ps,
+       width = 6.5, height = 1.9,
+       filename = 'nopp/fig/noppQQband.eps')
+
+
+
+## mean squared difference between empirical and expected ----
+data.qq %>%
+  group_by(fit) %>% 
+  summarise(msd = round(mean((Sample - Theoretical)^2), 3)) %>% 
+  t() %>% 
+  as.data.frame() %>% 
+  xtable() %>% 
+  print(booktabs = T, include.colnames = F) 
+
+
+
+
+# -----------------------------------------------------------------------------=
+# Chi-square test ----
+# -----------------------------------------------------------------------------=
+# data.pval = data.pval %>% 
+#   mutate(pval = ifelse( lb >= 0.05, paste0('\\textbf{', median, '}'), paste0(median))) %>% 
+#   mutate(ci = paste0('(', lb, ', ', ub, ')'))
+# 
+# test.rtct = data.pval %>% select(pval, ci) %>% data.frame()
+# rownames(test.rtct) = data.pval$fit
+# test.rtct
+# 
+# test.rtct %>% 
+#   xtable() %>% 
+#   print(booktabs = T, sanitize.text.function = function(x) {x})
+
+
+
+# -----------------------------------------------------------------------------=
+# Compensator plot ----
+# -----------------------------------------------------------------------------=
+# plot.comp = data.comp %>% 
+#   ggplot(aes(x = ts)) +
+#   geom_ribbon(aes(ymin = lb, ymax = ub), fill = "grey70", alpha = 0.8) + 
+#   geom_line(aes(y = t)) +
+#   geom_abline(intercept = 0, slope = 1, color = 'red') +
+#   facet_wrap(~fit) +
+#   labs(x = expression(t), y = expression(t^'*'))
+# plot.comp
+# 
+# ggsave(plot = plot.comp, width = 3.8, height = 3.8, filename = 'nopp/fig/noppComp.eps')
+
