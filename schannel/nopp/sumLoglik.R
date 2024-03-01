@@ -104,35 +104,3 @@ data.loglik %>%
   xtable() %>% 
   print(booktabs = F, include.colnames = F)
   
-
-
-# -----------------------------------------------------------------------------=
-# DIC ----
-# -----------------------------------------------------------------------------=
-data.dic$ExpDeviance = format(round(data.dic$ExpDeviance), nsmall = 0)
-data.dic$EffNumPar = format(round(data.dic$EffNumPar), nsmall = 0)
-data.dic$DIC = format(round(data.dic$DIC), nsmall = 0)
-
-data.dic %>% 
-  xtable() %>% 
-  print(booktabs = F, include.rownames = F)
-
-
-
-# -----------------------------------------------------------------------------=
-# BIC ----
-# -----------------------------------------------------------------------------=
-data.bic$ExpDeviance = format(round(data.bic$ExpDeviance), nsmall = 0)
-data.bic$NumPars = format(round(data.bic$NumPars), nsmall = 0)
-data.bic$BIC = format(round(data.bic$BIC), nsmall = 0)
-
-data.bic %>% 
-  xtable() %>% 
-  print(booktabs = F, include.rownames = F)
-
-
-
-cbind(data.dic, data.bic %>% select(-c(fit, ExpDeviance))) %>%
-  select(fit, ExpDeviance, EffNumPar, NumPars, DIC, BIC) %>% 
-  xtable() %>%
-  print(booktabs = F, include.rownames = F)
