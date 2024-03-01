@@ -84,8 +84,6 @@ adapIter = rep(1, 3)
 COVbeta = diag(p)
 COVdelta = COVeta = 1
 
-shape_kappa = 2
-rate_kappa = 1
 lb_eta = 3 / 20
 ub_eta = 3 / min(diff(ts))
 shape_alpha = rate_alpha = 0.001
