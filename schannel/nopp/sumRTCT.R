@@ -101,36 +101,3 @@ data.qq %>%
   print(booktabs = T, include.colnames = F) 
 
 
-
-
-# -----------------------------------------------------------------------------=
-# Chi-square test ----
-# -----------------------------------------------------------------------------=
-# data.pval = data.pval %>% 
-#   mutate(pval = ifelse( lb >= 0.05, paste0('\\textbf{', median, '}'), paste0(median))) %>% 
-#   mutate(ci = paste0('(', lb, ', ', ub, ')'))
-# 
-# test.rtct = data.pval %>% select(pval, ci) %>% data.frame()
-# rownames(test.rtct) = data.pval$fit
-# test.rtct
-# 
-# test.rtct %>% 
-#   xtable() %>% 
-#   print(booktabs = T, sanitize.text.function = function(x) {x})
-
-
-
-# -----------------------------------------------------------------------------=
-# Compensator plot ----
-# -----------------------------------------------------------------------------=
-# plot.comp = data.comp %>% 
-#   ggplot(aes(x = ts)) +
-#   geom_ribbon(aes(ymin = lb, ymax = ub), fill = "grey70", alpha = 0.8) + 
-#   geom_line(aes(y = t)) +
-#   geom_abline(intercept = 0, slope = 1, color = 'red') +
-#   facet_wrap(~fit) +
-#   labs(x = expression(t), y = expression(t^'*'))
-# plot.comp
-# 
-# ggsave(plot = plot.comp, width = 3.8, height = 3.8, filename = 'nopp/fig/noppComp.eps')
-
