@@ -96,10 +96,8 @@ adaptInterval = 200
 adaptFactorExponent = 0.8
 outers = c(0, seq(1000, niters, by = 1000))
 
-# start = 1; postSamples = postBranching = postWm = c(); Accprob = 0; rtime = 0
-load(filename); start = which(outers == nrow(postSamples))
-
-# i = 2; outers = seq(0, 2000, by = 100); adaptInterval = 50
+start = 1; postSamples = postBranching = postWm = c(); Accprob = 0; rtime = 0
+# load(filename); start = which(outers == nrow(postSamples))
 
 sourceCpp('src/RcppFtns.cpp')
 
