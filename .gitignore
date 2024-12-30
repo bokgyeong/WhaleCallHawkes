@@ -3,7 +3,7 @@
 .Rapp.history
 
 # Session Data files
-.RData
+# .RData
 .RDataTmp
 
 # Output files from R CMD build
