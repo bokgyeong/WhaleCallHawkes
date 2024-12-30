@@ -38,12 +38,18 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 ## Compute deviance information criterion (DIC) 
 
 ### Obtain posterior samples for loglikelihoods
+
 `loglikNHPP.R`, `loglikNHPPSE.R`, `loglikLGCP.R`, `loglikLGCPSE.R`
-- Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the models fitted to the simulated datasets
+
+- Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for each model fitted to the simulated datasets
 - The resulting posterior samples for the loglikelihood  are saved in the folder `/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain.
 
 ### Compute DIC
+
+`sumDIC.R`
+
+- 
 
 
 ## Obtain posterior samples for random time change theorem (RTCT)
