@@ -29,3 +29,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - All components are saved in the folder `/data`
 
 ## Fit the multivariate Hawkes process models to the simulated datasets
+- `fitNHPP.R`: Fit the model (i) NHPP to the simulated datasets
+- `fitNHPPSE.R`: Fit the model (ii) NHPP+SE to the simulated datasets
+- `fitLGCP.R`: Fit the model (iii) NHPP+GP to the simulated datasets
+- `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+SE to the simulated datasets
