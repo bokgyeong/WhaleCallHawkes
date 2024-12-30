@@ -35,7 +35,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+SE to the simulated datasets
 - The resulting posterior samples for model parameters are saved in the folder `/fit`
 
-## Obtain the posterior samples for the loglikelihood 
+## Obtain posterior samples for loglikelihoods
 - `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (i) NHPP fitted to the simulated datasets
 - `loglikNHPPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (ii) NHPP+SE fitted to the simulated datasets
 - `loglikLGCP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (iii) NHPP+GP fitted to the simulated datasets
@@ -43,8 +43,18 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - The resulting posterior samples for the loglikelihood  are saved in the folder `/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain.
 
-## 
+## Obtain posterior samples for random time change theorem (RTCT)
+- We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
 - `rtctNHPP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (i) NHPP fitted to the simulated datasets
-- `rtctNHPPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the loglikelihood for the model (ii) NHPP+SE fitted to the simulated datasets
-- `rtctLGCP.R`: Evaluate $d^{\ast}_{b,i}$ for the loglikelihood for the model (iii) NHPP+GP fitted to the simulated datasets
-- `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the loglikelihood for the model (iv) NHPP+GP+SE fitted to the simulated datasets
+- `rtctNHPPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (ii) NHPP+SE fitted to the simulated datasets
+- `rtctLGCP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iii) NHPP+GP fitted to the simulated datasets
+- `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iv) NHPP+GP+SE fitted to the simulated datasets
+- The results are saved in the folder `/rtct`
+  
+## Obtain posterior samples for the expected number of upcalls
+- We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
+- `numNHPP.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (i) NHPP fitted to the simulated datasets
+- `numNHPPSE.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (ii) NHPP+SE fitted to the simulated datasets
+- `numLGCP.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (iii) NHPP+GP fitted to the simulated datasets
+- `numLGCPSE.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (iv) NHPP+GP+SE fitted to the simulated datasets
+- The results are saved in the folder `/num`
