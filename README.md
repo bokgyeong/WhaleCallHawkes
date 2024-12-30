@@ -26,10 +26,25 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `dataNHPPSE.R`: Generate a dataset from the model (ii) NHPP+SE
 - `dataLGCP.R`: Generate a dataset from the model (iii) NHPP+GP
 - `dataLGCPSE.R`: Generate a dataset from the model (iv) NHPP+GP+SE
-- All components are saved in the folder `/data`
+- The simulated datasets are saved in the folder `/data`
 
-## Fit the multivariate Hawkes process models to the simulated datasets
+## Fit the multivariate Hawkes process models to the simulated datasets 
 - `fitNHPP.R`: Fit the model (i) NHPP to the simulated datasets
 - `fitNHPPSE.R`: Fit the model (ii) NHPP+SE to the simulated datasets
 - `fitLGCP.R`: Fit the model (iii) NHPP+GP to the simulated datasets
 - `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+SE to the simulated datasets
+- The resulting posterior samples for model parameters are saved in the folder `/fit`
+
+## Obtain the posterior samples for the loglikelihood 
+- `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (i) NHPP fitted to the simulated datasets
+- `loglikNHPPSE.R`: Obtain the posterior samples for the loglikelihood for the model (ii) NHPP+SE fitted to the simulated datasets
+- `loglikLGCP.R`: Obtain the posterior samples for the loglikelihood for the model (iii) NHPP+GP fitted to the simulated datasets
+- `loglikLGCPSE.R`: Obtain the posterior samples for the loglikelihood for the model (iv) NHPP+GP+SE fitted to the simulated datasets
+- The resulting posterior samples for the loglikelihood  are saved in the folder `/loglik`
+- We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain.
+
+## 
+- `rtctNHPP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (i) NHPP fitted to the simulated datasets
+- `rtctNHPPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the loglikelihood for the model (ii) NHPP+SE fitted to the simulated datasets
+- `rtctLGCP.R`: Evaluate $d^{\ast}_{b,i}$ for the loglikelihood for the model (iii) NHPP+GP fitted to the simulated datasets
+- `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the loglikelihood for the model (iv) NHPP+GP+SE fitted to the simulated datasets
