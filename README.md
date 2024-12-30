@@ -37,9 +37,9 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 
 ## Obtain the posterior samples for the loglikelihood 
 - `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (i) NHPP fitted to the simulated datasets
-- `loglikNHPPSE.R`: Obtain the posterior samples for the loglikelihood for the model (ii) NHPP+SE fitted to the simulated datasets
-- `loglikLGCP.R`: Obtain the posterior samples for the loglikelihood for the model (iii) NHPP+GP fitted to the simulated datasets
-- `loglikLGCPSE.R`: Obtain the posterior samples for the loglikelihood for the model (iv) NHPP+GP+SE fitted to the simulated datasets
+- `loglikNHPPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (ii) NHPP+SE fitted to the simulated datasets
+- `loglikLGCP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (iii) NHPP+GP fitted to the simulated datasets
+- `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (iv) NHPP+GP+SE fitted to the simulated datasets
 - The resulting posterior samples for the loglikelihood  are saved in the folder `/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain.
 
