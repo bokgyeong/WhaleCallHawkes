@@ -27,10 +27,10 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 ### Step 3: Compare models via deviance information criterion (DIC) 
 
 #### Compute loglikelihood
-- `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for (i) NHPP fitted to the simulated datasets
-- `loglikNHPPSE.R`:Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for (ii) NHPP+E fitted to the simulated datasets
-- `loglikLGCP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for (iii) NHPP+GP fitted to the simulated datasets
-- `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for (iv) NHPP+GP+E fitted to the simulated datasets
+- `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (i) NHPP fitted to the simulated datasets
+- `loglikNHPPSE.R`:Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (ii) NHPP+E fitted to the simulated datasets
+- `loglikLGCP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (iii) NHPP+GP fitted to the simulated datasets
+- `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (iv) NHPP+GP+E fitted to the simulated datasets
 - The resulting posterior samples for the loglikelihood  are saved in the directory `/sim/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain
 
@@ -42,7 +42,10 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 
 #### Compute the expected number of calls occurring between two consecutive events
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
-- `rtctNHPP.R`, `rtctNHPPSE.R`, `rtctLGCP.R`, `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for each model fitted to the simulated datasets
+- `rtctNHPP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (i) NHPP fitted to the simulated datasets
+- `rtctNHPPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (ii) NHPP+E fitted to the simulated datasets
+- `rtctLGCP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iii) NHPP+GP fitted to the simulated datasets
+- `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iv) NHPP+GP+E fitted to the simulated datasets
 - The results are saved in the directory `/sim/rtct`
 
 #### Obtain Q-Q plot and mean squared difference (MSD) for RTCT
