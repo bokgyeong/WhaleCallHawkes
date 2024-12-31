@@ -124,20 +124,14 @@ The file `ccb.RData` includes the following R objects:
 - `/real/sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties. Generate Q-Q plots (Figure 6) and calculate the mean squared difference (Table 3) for models (i) to (iv) fitted to the dataset
 
 ### Step 4. Perform inference using a compensator
+We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
+- `/real/numLGCPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each MARU for the model (iv) NHPP+GP+E fitted to the dataset. The results are saved in the directory `/real/num`
+- `/real/sumNumM4.R`: Calculate the posterior mean estimates for the expected number of within-MARU countercalls and cross-MARU countercalls and generate Figure 8 for the model (iv) NHPP+GP+E. Generate the joint posterior distribution of the expected number of contact calls and countercalls received at each MARU and create Figure 9 for the model (iv) NHPP+GP+E
 
-#### Evaluate the expected number of calls
+### Step 5. Summarize posterior estimates for fixed effects
+- `sumCInXBM4.R`: Compute posterior mean estimates and highest posterior density (HPD) intervals for the coefficient of the ambient noise per MARU and generate Figure 7 (a) for the model (iv) NHPP+GP+E. Obtain posterior mean estimates for the diel effects over time for each MARU and create Figure 7 (b) for the model (iv) NHPP+GP+E
+
+### Step 6. Estimate the intensity of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
-- `/real/numNHPP.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each MARU for the model (i) NHPP fitted to the dataset
-- `/real/numNHPPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each MARU for the model (ii) NHPP+E fitted to the dataset
-- `/real/numLGCP.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each MARU for the model (iii) NHPP+GP fitted to the dataset
-- `/real/numLGCPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each MARU for the model (iv) NHPP+GP+E fitted to the dataset
-- The results are saved in the directory `/real/num`
-
-#### Summarize results
-- `/real/sumNum.R`: Calculate the posterior mean estimates for the expected number of within-MARU countercalls and cross-MARU countercalls, and create Figure 8 as presented in the paper. Generate the joint posterior distribution of the expected number of contact calls and countercalls received at each MARU (Figure 9)
-
-
-
-
-
-
+- `lamLGCPSE.R`: Compute the posterior quantile estimates (0.025, 0.5, 0.975) for the intensity of total calls, contact calls, and countercalls received across MARUs, and generate supplemental Figures S2 and S3
+- `sumLamM4.R`
