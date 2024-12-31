@@ -33,7 +33,7 @@ The code has been tested using R version 4.4.0, “Puppy Cup.” To ensure succe
 - The resulting posterior samples for the loglikelihood  are saved in the directory `/sim/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain
 
-#### Obtain DIC
+#### Obtain DIC and summarize results
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
 - `/sim/sumDIC.R`: Evaluate DIC for each model and create Table 2 included in the paper
 
@@ -106,7 +106,7 @@ The file `ccb.RData` includes the following R objects:
 - The resulting posterior samples for the loglikelihood  are saved in the directory `/real/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain
 
-#### Obtain DIC
+#### Obtain DIC and summarize results
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
 - `/real/sumDIC.R`: Evaluate DIC for each model and create Table 3 included in the paper
 
