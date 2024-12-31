@@ -27,7 +27,10 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 ### Step 3: Compare models via deviance information criterion (DIC) 
 
 #### Compute loglikelihood
-- `loglikNHPP.R`, `loglikNHPPSE.R`, `loglikLGCP.R`, `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for each model fitted to the simulated datasets
+- `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for (i) NHPP fitted to the simulated datasets
+- `loglikNHPPSE.R`:Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for (ii) NHPP+E fitted to the simulated datasets
+- `loglikLGCP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for (iii) NHPP+GP fitted to the simulated datasets
+- `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for (iv) NHPP+GP+E fitted to the simulated datasets
 - The resulting posterior samples for the loglikelihood  are saved in the directory `/sim/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain
 
