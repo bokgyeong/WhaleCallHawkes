@@ -74,14 +74,21 @@ The file `CCB_2010.csv` includes the following columns:
 - Longitude: A numeric variable representing the longitude coordinate of each hydrophone’s location, in degrees
 
 The file `ccb.RData` includes the following R objects:
-- The `data` object is an R dataframe containing the following components:
+- The `data` object is an R data frame containing the following components:
   - `data$ts`: A numeric vector representing the detected call times in minutes, relative to the starting point 2010-04-02 00:30:00.000. Each value indicates the number of minutes elapsed since the starting point
   - `data$marks`: A categorical vector representing the hydrophone indices that recorded the call times in data$ts
   - `data$Latitude`: A numeric vector representing the latitude coordinate of locations of hydrophones in data$marks, in degrees
   - `data$Longitude`: A numeric vector representing the longitude coordinate of locations of hydrophones in data$marks, in degrees
   - `data$UTC`: A character vector containing the timestamps of detected calls
 - The `distmat` object is a numeric matrix representing the pairwise distance between two hydrophones
-- The `UTC` object is an R dataframe containing the following components
+- The `UTC` object is an R data frame containing the following components
+  - `UTC$UTC`:  A character vector listing timestamps at one-minute intervals throughout the study period
+  - `UTC$ts`: A numeric vector representing the timestamps in `UTC$UTC` in minutes, relative to the starting point 2010-04-02 00:30:00.000. Each value indicates the number of minutes elapsed since the starting point
+- The `noise` object is a data frame containing measurements of noise levels at various MARU (Marine Autonomous Recording Units) over time. The columns are described as follows:
+  - maru_0, maru_1, $\dots$, maru_9: Numeric variables representing the noise levels recorded at MARUs 1 through 10, respectively. Each value corresponds to the noise level at each of time points in `UTC$UTC`
+	•	ts: A numeric variable indicating the relative time in minutes, where each value represents the time point relative to a reference starting time (e.g., 2010-04-02 00:30:00.000). Negative values indicate times before the reference point.
+
+- The `noise` object is an R dataframe containing the following components
   - `UTC$UTC`:  A character vector listing timestamps at one-minute intervals throughout the study period
   - `UTC$ts`: A numeric vector representing the timestamps in `UTC$UTC` in minutes, relative to the starting point 2010-04-02 00:30:00.000. Each value indicates the number of minutes elapsed since the starting point
 
