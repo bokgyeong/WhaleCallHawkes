@@ -49,7 +49,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - The results are saved in the directory `/sim/rtct`
 
 #### Summarize results
-- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties, create Q-Q plots (Figure 4), and obtain mean squared difference (Table 1) for models (i) to (iv) fitted to the data generated from each of the models. 
+- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties. Generate Q-Q plots (Figure 4) and calculate the mean squared difference (Table 1) for models (i) to (iv) fitted to each of the simulated datasets
 
 ### Step 5: Perform inference using a compensator
 
@@ -62,7 +62,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - The results are saved in the directory `/sim/num`
 
 #### Summarize results
-- `sumNum.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received across hydrophones and obtain empirical posterior distributions (Figure 5).
+- `sumNum.R`: Evaluate the expected counts for total calls, contact calls, and countercalls received across hydrophones, and obtain the corresponding empirical posterior distributions (Figure 5)
 
 
 ## Analysis of North Atlantic right whale upcall data
@@ -98,8 +98,8 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iv) NHPP+GP+E fitted to the dataset
 - The results are saved in the directory `/real/rtct`
 
-#### Obtain Q-Q plot and mean squared difference (MSD) for RTCT
-- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties and generate Figure 6 and Table 3 as presented in the paper
+#### Summarize results
+- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties. Generate Q-Q plots (Figure 6) and calculate the mean squared difference (Table 3) for models (i) to (iv) fitted to the dataset
 
 ### Step 5: Perform inference using a compensator
 
@@ -111,10 +111,8 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `numLGCPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (iv) NHPP+GP+E fitted to the dataset
 - The results are saved in the directory `/real/num`
 
-#### Compute the expected number of with
-- `sumNum.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls received across hydrophones and create Figure 5 as outlined in the paper
-
-
+#### Summarize results
+- `sumNum.R`:
 
 
 
