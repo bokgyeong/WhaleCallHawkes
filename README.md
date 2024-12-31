@@ -70,7 +70,10 @@ The real datasets saved in the directory `real/data`
 
 - `CCB_2010.csv` contains the hydrophone indices (Site column) and their corresponding coordinates (Latitude and Longitude columns)
 - `ccb.RData`
-- - dd
+  - The `data` object is an R list containing the following components:
+    - data$ts: A numeric vector representing the call times. Each entry corresponds to the time at which a call was detected
+    - data$marks: A vector representing the hydrophone indices that detected the calls. Each element indicates which hydrophone recorded the corresponding call time in data$ts
+ 
 
 ### Step 1. Fit the multivariate Hawkes process models to the dataset 
 - `/real/fitNHPP.R`: Fit the model (i) NHPP to the dataset 
