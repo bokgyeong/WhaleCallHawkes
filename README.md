@@ -48,8 +48,8 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iv) NHPP+GP+E fitted to the simulated datasets
 - The results are saved in the directory `/sim/rtct`
 
-#### Obtain Q-Q plot and mean squared difference (MSD) for RTCT
-- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties and generate Figure 4 and Table 1 as presented in the paper
+#### Summarize results
+- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties, create Q-Q plots (Figure 4), and obtain mean squared difference (Table 1) for models (i) to (iv) fitted to the data generated from each of the models. 
 
 ### Step 5: Perform inference using a compensator
 
@@ -61,9 +61,8 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `numLGCPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (iv) NHPP+GP+E fitted to the simulated datasets
 - The results are saved in the directory `/sim/num`
 
-#### Obtain the empirical posterior distributions for the expected number of total calls, contact calls, and countercalls
-- `sumNum.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls received across hydrophones and create Figure 5 as outlined in the paper
-
+#### Summarize results
+- `sumNum.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received across hydrophones and obtain empirical posterior distributions (Figure 5).
 
 
 ## Analysis of North Atlantic right whale upcall data
@@ -110,10 +109,9 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `numNHPPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (ii) NHPP+E fitted to the dataset
 - `numLGCP.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (iii) NHPP+GP fitted to the dataset
 - `numLGCPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (iv) NHPP+GP+E fitted to the dataset
-
 - The results are saved in the directory `/real/num`
 
-#### Obtain the empirical posterior distributions for the expected number of total calls, contact calls, and countercalls
+#### Compute the expected number of with
 - `sumNum.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls received across hydrophones and create Figure 5 as outlined in the paper
 
 
