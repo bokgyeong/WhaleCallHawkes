@@ -131,7 +131,7 @@ We suggest using the burn-in period determined based on the trace plot of the lo
 ### Step 5. Summarize posterior estimates for fixed effects
 - `sumCInXBM4.R`: Compute posterior mean estimates and highest posterior density (HPD) intervals for the coefficient of the ambient noise per MARU and generate Figure 7 (a) for the model (iv) NHPP+GP+E. Obtain posterior mean estimates for the diel effects over time for each MARU and create Figure 7 (b) for the model (iv) NHPP+GP+E
 
-### Step 6. Estimate the intensity of calls
+### Step 6. Estimate the intensities of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
 - `lamLGCPSE.R`: Compute the posterior quantile estimates (0.025, 0.5, 0.975) for the intensity of total calls, contact calls, and countercalls received across MARUs for the model (iv) NHPP+GP+E
 - `sumLamM4.R`: Generate supplemental Figures S2 and S3 for the model (iv) NHPP+GP+E
