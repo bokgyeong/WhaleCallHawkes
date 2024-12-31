@@ -75,7 +75,10 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 ### Step 3: Compare models via deviance information criterion (DIC) 
 
 #### Compute loglikelihood
-- `loglikNHPP.R`, `loglikNHPPSE.R`, `loglikLGCP.R`, `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for each model fitted to the dataset
+- `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (i) NHPP fitted to the dataset
+- `loglikNHPPSE.R`:Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (ii) NHPP+E fitted to the dataset
+- `loglikLGCP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (iii) NHPP+GP fitted to the dataset
+- `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (iv) NHPP+GP+E fitted to the dataset
 - The resulting posterior samples for the loglikelihood  are saved in the directory `/real/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain
 
@@ -87,7 +90,10 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 
 #### Compute the expected number of calls occurring between two consecutive events
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
-- `rtctNHPP.R`, `rtctNHPPSE.R`, `rtctLGCP.R`, `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for each model fitted to the dataset
+- `rtctNHPP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (i) NHPP fitted to the dataset
+- `rtctNHPPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (ii) NHPP+E fitted to the dataset
+- `rtctLGCP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iii) NHPP+GP fitted to the dataset
+- `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iv) NHPP+GP+E fitted to the dataset
 - The results are saved in the directory `/real/rtct`
 
 #### Obtain Q-Q plot and mean squared difference (MSD) for RTCT
