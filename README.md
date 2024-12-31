@@ -83,14 +83,11 @@ The file `ccb.RData` includes the following R objects:
 - The `distmat` object is a numeric matrix representing the pairwise distance between two hydrophones
 - The `UTC` object is an R data frame containing the following components
   - `UTC$UTC`:  A character vector listing timestamps at one-minute intervals throughout the study period
-  - `UTC$ts`: A numeric vector representing the timestamps in `UTC$UTC` in minutes, relative to the starting point 2010-04-02 00:30:00.000. Each value indicates the number of minutes elapsed since the starting point
+  - `UTC$ts`: A numeric vector representing the timestamps in `UTC$UTC` in minutes, relative to the starting point 2010-04-02 00:30:00.000. Each value indicates the number of minutes elapsed since the starting point. Negative values indicate times before the reference point
 - The `noise` object is a data frame containing measurements of noise levels at various MARU (Marine Autonomous Recording Units) over time. The columns are described as follows:
-  - maru_0, maru_1, $\dots$, maru_9: Numeric variables representing the noise levels recorded at MARUs 1 through 10, respectively. Each value corresponds to the noise level at each of time points in `UTC$UTC`
-	•	ts: A numeric variable indicating the relative time in minutes, where each value represents the time point relative to a reference starting time (e.g., 2010-04-02 00:30:00.000). Negative values indicate times before the reference point.
+  - `noise$maru_0`, `noise$maru_1`, $\dots$, `noise$maru_9`: Numeric variables representing the noise levels recorded at MARUs 1 through 10, respectively. Each value corresponds to the noise level at each of the time points in `UTC$UTC`
+  - `noise$ts`: A numeric variable identical to `UTC$ts`
 
-- The `noise` object is an R dataframe containing the following components
-  - `UTC$UTC`:  A character vector listing timestamps at one-minute intervals throughout the study period
-  - `UTC$ts`: A numeric vector representing the timestamps in `UTC$UTC` in minutes, relative to the starting point 2010-04-02 00:30:00.000. Each value indicates the number of minutes elapsed since the starting point
 
 ### Step 1. Fit the multivariate Hawkes process models to the dataset 
 - `/real/fitNHPP.R`: Fit the model (i) NHPP to the dataset 
