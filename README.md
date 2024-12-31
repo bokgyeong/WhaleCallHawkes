@@ -17,14 +17,14 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `dataLGCPSE.R`: Generate a dataset from the model (iv) NHPP+GP+E
 - The simulated datasets are saved in the directory `/sim/data`
 
-### Step 2: Fit the multivariate Hawkes process models to the simulated datasets 
+### Step 2. Fit the multivariate Hawkes process models to the simulated datasets 
 - `fitNHPP.R`: Fit the model (i) NHPP to the simulated datasets
 - `fitNHPPSE.R`: Fit the model (ii) NHPP+E to the simulated datasets
 - `fitLGCP.R`: Fit the model (iii) NHPP+GP to the simulated datasets
 - `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+E to the simulated datasets
 - The resulting posterior samples for model parameters are saved in the directory `/sim/fit`
 
-### Step 3: Compare models via deviance information criterion (DIC) 
+### Step 3. Compare models via deviance information criterion (DIC) 
 
 #### Compute loglikelihood
 - `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (i) NHPP fitted to the simulated datasets
@@ -38,7 +38,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
 - `sumDIC.R`: Evaluate DIC for each model and create Table 2 included in the paper
 
-### Step 4: Assess model adequacy via random time change theorem (RTCT)
+### Step 4. Assess model adequacy via random time change theorem (RTCT)
 
 #### Compute the expected number of calls occurring between two consecutive events
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
@@ -51,7 +51,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 #### Summarize results
 - `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties. Generate Q-Q plots (Figure 4) and calculate the mean squared difference (Table 1) for models (i) to (iv) fitted to each of the simulated datasets
 
-### Step 5: Perform inference using a compensator
+### Step 5. Perform inference using a compensator
 
 #### Evaluate the expected number of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
@@ -67,14 +67,14 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 
 ## Analysis of North Atlantic right whale upcall data
 
-### Step 1: Fit the multivariate Hawkes process models to the dataset 
+### Step 1. Fit the multivariate Hawkes process models to the dataset 
 - `fitNHPP.R`: Fit the model (i) NHPP to the dataset 
 - `fitNHPPSE.R`: Fit the model (ii) NHPP+E to the dataset 
 - `fitLGCP.R`: Fit the model (iii) NHPP+GP to the dataset 
 - `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+E to the dataset 
 - The resulting posterior samples for model parameters are saved in the directory `/real/fit`
 
-### Step 2: Compare models via deviance information criterion (DIC) 
+### Step 2. Compare models via deviance information criterion (DIC) 
 
 #### Compute loglikelihood
 - `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (i) NHPP fitted to the dataset
@@ -88,7 +88,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
 - `sumDIC.R`: Evaluate DIC for each model and create Table 3 included in the paper
 
-### Step 3: Assess model adequacy via random time change theorem (RTCT)
+### Step 3. Assess model adequacy via random time change theorem (RTCT)
 
 #### Compute the expected number of calls occurring between two consecutive events
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
@@ -101,7 +101,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 #### Summarize results
 - `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties. Generate Q-Q plots (Figure 6) and calculate the mean squared difference (Table 3) for models (i) to (iv) fitted to the dataset
 
-### Step 4: Perform inference using a compensator
+### Step 4. Perform inference using a compensator
 
 #### Evaluate the expected number of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
