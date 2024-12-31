@@ -75,14 +75,15 @@ The file `CCB_2010.csv` includes the following columns:
 
 The file `ccb.RData` includes the following R objects:
 - The `data` object is an R dataframe containing the following components:
-  - `data$ts`: A numeric vector representing the call times
+  - `data$ts`: A numeric vector representing the detected call times in minutes, relative to the starting point 2010-04-02 00:30:00.000. Each value indicates the number of minutes elapsed since the starting point
   - `data$marks`: A categorical vector representing the hydrophone indices that recorded the call times in data$ts
   - `data$Latitude`: A numeric vector representing the latitude coordinate of locations of hydrophones in data$marks, in degrees
   - `data$Longitude`: A numeric vector representing the longitude coordinate of locations of hydrophones in data$marks, in degrees
   - `data$UTC`: A character vector containing the timestamps of detected calls
 - The `distmat` object is a numeric matrix representing the pairwise distance between two hydrophones
 - The `UTC` object is an R dataframe containing the following components
-  - dd
+  - `UTC$UTC`:  A character vector listing timestamps at one-minute intervals throughout the study period
+  - `UTC$ts`: A numeric vector representing the timestamps in `UTC$UTC` in minutes, relative to the starting point 2010-04-02 00:30:00.000. Each value indicates the number of minutes elapsed since the starting point
 
 ### Step 1. Fit the multivariate Hawkes process models to the dataset 
 - `/real/fitNHPP.R`: Fit the model (i) NHPP to the dataset 
