@@ -10,7 +10,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 
 ## Simulation study
 
-### Step 1: Simulate data
+### Step 1. Simulate data
 - `dataNHPP.R`: Generate a dataset from the model (i) NHPP
 - `dataNHPPSE.R`: Generate a dataset from the model (ii) NHPP+E
 - `dataLGCP.R`: Generate a dataset from the model (iii) NHPP+GP
