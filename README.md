@@ -37,7 +37,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+E to the simulated datasets
 - The resulting posterior samples for model parameters are saved in the folder `/sim/fit`
 
-### Step 3: Model comparison via deviance information criterion (DIC) 
+### Step 3: Compare models via deviance information criterion (DIC) 
 
 #### Compute loglikelihood
 - `loglikNHPP.R`, `loglikNHPPSE.R`, `loglikLGCP.R`, `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for each model fitted to the simulated datasets
@@ -46,21 +46,23 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 
 #### Obtain DIC
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
-- `sumDIC.R`: Evaluate DIC for each model and create Table 2 in the paper
+- `sumDIC.R`: Evaluate DIC for each model and create Table 2 included in the paper
 
-### Step 4: Assessing model adequacy via random time change theorem (RTCT)
+### Step 4: Assess model adequacy via random time change theorem (RTCT)
 
-#### Compute $d^{\ast}_{b,i}$
+#### Compute the expected number of calls occurring between two consecutive events
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
-- `rtctNHPP.R`, `rtctNHPPSE.R, `rtctLGCP.R`, `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for each model fitted to the simulated datasets
+- `rtctNHPP.R`, `rtctNHPPSE.R`, `rtctLGCP.R`, `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for each model fitted to the simulated datasets
 - The results are saved in the folder `/sim/rtct`
 
-#### 
+#### Obtain the Q-Q plot and mean squared difference (MSD) for RTCT
+- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics \{d_{(i)}^{*}\}, along with their associated uncertainties, and generate Figure 4 and Table 1 as presented in the paper
 
-### Obtain posterior samples for the expected number of upcalls
+### Step 5: 
+
+#### Evaluate the expected number of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
-- `numNHPP.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (i) NHPP fitted to the simulated datasets
-- `numNHPPSE.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (ii) NHPP+E fitted to the simulated datasets
-- `numLGCP.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (iii) NHPP+GP fitted to the simulated datasets
-- `numLGCPSE.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (iv) NHPP+GP+E fitted to the simulated datasets
-- The results are saved in the folder `/num`
+- `numNHPP.R`, `numNHPPSE.R`, `numLGCP.R`, `numLGCPSE.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls for each model fitted to the simulated datasets
+- The results are saved in the folder `/sim/num`
+
+### 
