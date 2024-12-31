@@ -62,14 +62,13 @@ shape_tau = 2
 rate_tau = 1
 
 
-# niters = 100000
-niters = 200
+niters = 100000
 updateCOV = TRUE
 adaptInterval = 200
 adaptFactorExponent = 0.8
 adapIter = rep(1, length(sigma2))
-# outers = unique(c(0, seq(1000, niters, by = 1000), niters))
-outers = c(0, niters)
+outers = unique(c(0, seq(1000, niters, by = 1000), niters))
+# outers = c(0, niters)
 
 
 start = 1; postBeta0 = postTilde = postTau = c(); postBeta = sapply(1:p, function(i) c(), simplify = F); Accprob = 0; rtime = 0

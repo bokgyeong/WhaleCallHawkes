@@ -42,8 +42,7 @@ rho_beta = max(distmat) / 3 # effective range is the maximum distance between HP
 indlam0 = sapply(1:length(ts), function(i) which(knts >= ts[i])[1] - 1 - 1)
 
 
-# burn = 75000
-burn = 50
+burn = 75000
 
 data.dic = c()
 

@@ -29,8 +29,7 @@ load(paste0(path.fit, datai, '_', fiti, '.RData'))
 p = nrow(beta)
 K = nrow(distmat)
 
-# burn = 10000
-burn = 50
+burn = 75000
 
 postBeta0 = postBeta0[-(1:burn),]
 for(i in 1:p){
@@ -60,7 +59,6 @@ knts = unique(c(0, seq(0, maxT, by = sback), maxT))
 m = length(knts) - 1
 rho_beta = max(distmat) / 3 # effective range is the maximum distance between HPs
 # rho_w = 60 # effective range is rho_w * 3
-
 
 aaa = unique(c(0, seq(100, length(ts), by = 100), length(ts)))
 

@@ -29,8 +29,7 @@ load(paste0(path.fit, datai, '_', fiti, '.RData'))
 p = nrow(beta)
 K = nrow(distmat)
 
-# burn = 10000
-burn = 50
+burn = 75000
 
 postBeta0 = postBeta0[-(1:burn),]
 for(i in 1:p){

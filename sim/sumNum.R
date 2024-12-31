@@ -26,8 +26,6 @@ path.cpp = paste0(fold, 'src/RcppFtns.cpp')
 # Compute expected numbers ----
 # =============================================================================-
 
-# burn = 10000
-burn = 100
 K = 10
 
 data.num = c()
@@ -66,7 +64,7 @@ for(i in 1:length(datasets)){
         data.num,
         data.frame(
           data = datasets[i], fit = fits[j],
-          Iteration = burn + 1:nrow(postNum),
+          Iteration = 1:nrow(postNum),
           MARU = as.factor(k),
           numBack = numBackatk, numSE = numSEatk, numTotal = numTotalatk,
           trnumBack = trnumBack[k], trnumSE = trnumSE[k], trnumTotal = trnumTotal[k]

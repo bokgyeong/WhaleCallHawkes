@@ -29,8 +29,7 @@ load( paste0(path.fit, datai, '_', fiti, '.RData'))
 p = nrow(beta)
 K = nrow(distmat)
 
-# burn = 10000
-burn = 50
+burn = 10000
 
 postBeta0 = postBeta0[-(1:burn),]
 for(i in 1:p){
@@ -67,8 +66,8 @@ rho_beta = max(distmat) / 3 # effective range is the maximum distance between HP
 p = ncol(Xm[[1]])
 indlam0 = sapply(1:length(ts), function(i) which(knts >= ts[i])[1] - 1 - 1)
 
-# aaa = unique(c(0, seq(200, niters, by = 200), niters))
-aaa = c(0, niters)
+aaa = unique(c(0, seq(1000, niters, by = 1000), niters))
+# aaa = c(0, niters)
 
 start = 1; postLogLik = c()
 # load(filename); start = which(length(postLogLik) == aaa)

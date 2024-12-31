@@ -27,8 +27,7 @@ path.r = paste0(fold, 'src/RFtns.R')
 path.cpp = paste0(fold, 'src/RcppFtns.cpp')
 
 
-# burn = 75000 # after seeing the trace plots of alphas
-burn = 50
+burn = 75000 # after seeing the trace plots of alphas
 # =============================================================================-
 # load ----
 # =============================================================================-

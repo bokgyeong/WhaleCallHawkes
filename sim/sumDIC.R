@@ -27,8 +27,7 @@ path.cpp = paste0(fold, 'src/RcppFtns.cpp')
 # =============================================================================-
 # Compute DID ----
 # =============================================================================-
-# burn = 10000 # decided based on trace plots of -2logL
-burn = 100
+burn = 10000 # decided based on trace plots of -2logL
 
 data.dic = c()
 

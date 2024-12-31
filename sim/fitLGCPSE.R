@@ -93,14 +93,13 @@ lb_phi = 3 / max(distmat)
 ub_phi = 3 / min(distmat[upper.tri(distmat)])
 
 
-# niters = 100000
-niters = 200
+niters = 100000
 updateCOV = TRUE
 adaptInterval = 200
 adaptFactorExponent = 0.8
 adapIter = rep(1, length(sigma2))
-# outers = unique(c(0, seq(1000, niters, by = 1000), niters))
-outers = c(0, niters)
+outers = unique(c(0, seq(1000, niters, by = 1000), niters))
+# outers = c(0, niters)
 
 
 start = 1; Accprob = 0; rtime = 0
