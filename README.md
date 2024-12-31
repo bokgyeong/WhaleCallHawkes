@@ -55,7 +55,10 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 
 #### Evaluate the expected number of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
-- `numNHPP.R`, `numNHPPSE.R`, `numLGCP.R`, `numLGCPSE.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls received at each hydrophone for each model fitted to the simulated datasets
+- `numNHPP.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (i) NHPP fitted to the simulated datasets
+- `numNHPPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (ii) NHPP+E fitted to the simulated datasets
+- `numLGCP.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (iii) NHPP+GP fitted to the simulated datasets
+- `numLGCPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (iv) NHPP+GP+E fitted to the simulated datasets
 - The results are saved in the directory `/sim/num`
 
 #### Obtain the empirical posterior distributions for the expected number of total calls, contact calls, and countercalls
@@ -103,7 +106,11 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 
 #### Evaluate the expected number of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
-- `numNHPP.R`, `numNHPPSE.R`, `numLGCP.R`, `numLGCPSE.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls received at each hydrophone for each model fitted to the dataset
+- `numNHPP.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (i) NHPP fitted to the dataset
+- `numNHPPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (ii) NHPP+E fitted to the dataset
+- `numLGCP.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (iii) NHPP+GP fitted to the dataset
+- `numLGCPSE.R`: Evaluate the expected total number of calls, the expected number of contact calls, the expected number of countercalls received at each hydrophone for the model (iv) NHPP+GP+E fitted to the dataset
+
 - The results are saved in the directory `/real/num`
 
 #### Obtain the empirical posterior distributions for the expected number of total calls, contact calls, and countercalls
