@@ -74,7 +74,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+E to the dataset 
 - The resulting posterior samples for model parameters are saved in the directory `/real/fit`
 
-### Step 3: Compare models via deviance information criterion (DIC) 
+### Step 2: Compare models via deviance information criterion (DIC) 
 
 #### Compute loglikelihood
 - `loglikNHPP.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for the model (i) NHPP fitted to the dataset
@@ -88,7 +88,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
 - `sumDIC.R`: Evaluate DIC for each model and create Table 3 included in the paper
 
-### Step 4: Assess model adequacy via random time change theorem (RTCT)
+### Step 3: Assess model adequacy via random time change theorem (RTCT)
 
 #### Compute the expected number of calls occurring between two consecutive events
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
@@ -101,7 +101,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 #### Summarize results
 - `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties. Generate Q-Q plots (Figure 6) and calculate the mean squared difference (Table 3) for models (i) to (iv) fitted to the dataset
 
-### Step 5: Perform inference using a compensator
+### Step 4: Perform inference using a compensator
 
 #### Evaluate the expected number of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
