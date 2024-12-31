@@ -112,7 +112,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - The results are saved in the directory `/real/num`
 
 #### Summarize results
-- `sumNum.R`:
+- `sumNum.R`: Calculate the posterior mean estimates for the expected number of within-MARU countercalls and cross-MARU countercalls, and create Figure 8 as presented in the paper. Generate the joint posterior distribution of the expected number of contact calls and countercalls received at each MARU (Figure 9)
 
 
 
