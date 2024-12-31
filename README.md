@@ -45,7 +45,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain
 
 #### Obtain DIC
-- We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
+- We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
 - `sumDIC.R`: Evaluate DIC for each model and create Table 2 included in the paper
 
 ### Step 4: Assess model adequacy via random time change theorem (RTCT)
@@ -56,7 +56,7 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - The results are saved in the folder `/sim/rtct`
 
 #### Obtain the Q-Q plot and mean squared difference (MSD) for RTCT
-- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics \{d_{(i)}^{*}\}, along with their associated uncertainties, and generate Figure 4 and Table 1 as presented in the paper
+- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties, and generate Figure 4 and Table 1 as presented in the paper
 
 ### Step 5: 
 
