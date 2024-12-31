@@ -4,8 +4,7 @@ Authors: Bokgyeong Kang, Erin M. Schliep, Alan E. Gelfand, Tina M. Yack, Christo
 Detailed instructions for implementing the proposed multivariate Hawkes process models, as well as for generating the tables and figures presented in the paper, are provided.
 
 ## Required packages
-The code has been tested with R version 4.4.0, "Puppy Cup."  The following R packages must be installed before the code will run successfully.
-
+The code has been tested using R version 4.4.0, “Puppy Cup.” To ensure successful execution, the following R packages must be installed: 
 `Rcpp`, `RcppArmadillo`, `foreach`, `batchmeans`, `tidyverse`, `readr`, `coda`, `egg`, `grid`, `xtable`, `sf`, `tigris`, `suncalc`, `cowplot`
 
 ## Simulation study
