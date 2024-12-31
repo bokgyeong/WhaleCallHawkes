@@ -21,45 +21,46 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `suncalc`
 - `cowplot`
 
-## Simulate data
+## Simulation study
+
+### Step 1: Simulate data
 - `dataNHPP.R`: Generate a dataset from the model (i) NHPP
-- `dataNHPPSE.R`: Generate a dataset from the model (ii) NHPP+SE
+- `dataNHPPSE.R`: Generate a dataset from the model (ii) NHPP+E
 - `dataLGCP.R`: Generate a dataset from the model (iii) NHPP+GP
-- `dataLGCPSE.R`: Generate a dataset from the model (iv) NHPP+GP+SE
-- The simulated datasets are saved in the folder `/data`
+- `dataLGCPSE.R`: Generate a dataset from the model (iv) NHPP+GP+E
+- The simulated datasets are saved in the folder `/sim/data`
 
-## Fit the multivariate Hawkes process models to the simulated datasets 
+### Step 2: Fit the multivariate Hawkes process models to the simulated datasets 
 - `fitNHPP.R`: Fit the model (i) NHPP to the simulated datasets
-- `fitNHPPSE.R`: Fit the model (ii) NHPP+SE to the simulated datasets
+- `fitNHPPSE.R`: Fit the model (ii) NHPP+E to the simulated datasets
 - `fitLGCP.R`: Fit the model (iii) NHPP+GP to the simulated datasets
-- `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+SE to the simulated datasets
-- The resulting posterior samples for model parameters are saved in the folder `/fit`
+- `fitLGCPSE.R`: Fit the model (iv) NHPP+GP+E to the simulated datasets
+- The resulting posterior samples for model parameters are saved in the folder `/sim/fit`
 
-## Compute deviance information criterion (DIC) 
+### Step 3: Model comparison via deviance information criterion (DIC) 
 
-### Obtain posterior samples for loglikelihoods
-
+#### Compute loglikelihood
 - `loglikNHPP.R`, `loglikNHPPSE.R`, `loglikLGCP.R`, `loglikLGCPSE.R`: Evaluate $\log L(\boldsymbol{\theta}_b \mid \mathcal{T})$ for each model fitted to the simulated datasets
-- The resulting posterior samples for the loglikelihood  are saved in the folder `/loglik`
+- The resulting posterior samples for the loglikelihood  are saved in the folder `/sim/loglik`
 - We suggest determining the burn-in period by examining the trace plot of the loglikelihood chain
 
-### Compute DIC
-
-- `sumDIC.R`: Evaluate DIC for each model and generate Tables 2 and 3 in the paper
-
-
-## Obtain posterior samples for random time change theorem (RTCT)
+#### Obtain DIC
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
-- `rtctNHPP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (i) NHPP fitted to the simulated datasets
-- `rtctNHPPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (ii) NHPP+SE fitted to the simulated datasets
-- `rtctLGCP.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iii) NHPP+GP fitted to the simulated datasets
-- `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for the model (iv) NHPP+GP+SE fitted to the simulated datasets
-- The results are saved in the folder `/rtct`
-  
-## Obtain posterior samples for the expected number of upcalls
+- `sumDIC.R`: Evaluate DIC for each model and create Table 2 in the paper
+
+### Step 4: Assessing model adequacy via random time change theorem (RTCT)
+
+#### Compute $d^{\ast}_{b,i}$
+- We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
+- `rtctNHPP.R`, `rtctNHPPSE.R, `rtctLGCP.R`, `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for each model fitted to the simulated datasets
+- The results are saved in the folder `/sim/rtct`
+
+#### 
+
+### Obtain posterior samples for the expected number of upcalls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain.
 - `numNHPP.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (i) NHPP fitted to the simulated datasets
-- `numNHPPSE.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (ii) NHPP+SE fitted to the simulated datasets
+- `numNHPPSE.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (ii) NHPP+E fitted to the simulated datasets
 - `numLGCP.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (iii) NHPP+GP fitted to the simulated datasets
-- `numLGCPSE.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (iv) NHPP+GP+SE fitted to the simulated datasets
+- `numLGCPSE.R`: Evaluate the expected total number of upcalls, expected number of contact calls, expected number of countercalls for the model (iv) NHPP+GP+E fitted to the simulated datasets
 - The results are saved in the folder `/num`
