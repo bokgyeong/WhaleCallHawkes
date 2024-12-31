@@ -66,6 +66,12 @@ The code has been tested using R version 4.4.0, “Puppy Cup.” To ensure succe
 
 ## Analysis of North Atlantic right whale upcall data
 
+The real datasets saved in the directory `real/data`
+
+- `CCB_2010.csv` contains the hydrophone indices (Site column) and their corresponding coordinates (Latitude and Longitude columns)
+- `ccb.RData`
+- - dd
+
 ### Step 1. Fit the multivariate Hawkes process models to the dataset 
 - `/real/fitNHPP.R`: Fit the model (i) NHPP to the dataset 
 - `/real/fitNHPPSE.R`: Fit the model (ii) NHPP+E to the dataset 
