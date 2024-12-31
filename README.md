@@ -66,13 +66,17 @@ The code has been tested using R version 4.4.0, “Puppy Cup.” To ensure succe
 
 ## Analysis of North Atlantic right whale upcall data
 
-The real datasets saved in the directory `real/data`
+The real datasets saved in the directory `/real/data`
 
-- `CCB_2010.csv` contains the hydrophone indices (Site column) and their corresponding coordinates (Latitude and Longitude columns)
-- `ccb.RData`
-  - The `data` object is an R list containing the following components:
-    - data$ts: A numeric vector representing the call times. Each entry corresponds to the time at which a call was detected
-    - data$marks: A vector representing the hydrophone indices that detected the calls. Each element indicates which hydrophone recorded the corresponding call time in data$ts
+The file `CCB_2010.csv` includes the following columns:
+- Site: A categorical variable representing the indices of the hydrophones. Each value uniquely identifies a hydrophone
+- Latitude: A numeric variable representing the latitude coordinate of each hydrophone’s location, in degrees
+- Longitude: A numeric variable representing the longitude coordinate of each hydrophone’s location, in degrees
+
+`ccb.RData`
+- The `data` object is an R list containing the following components:
+  - data$ts: A numeric vector representing the call times. Each entry corresponds to the time at which a call was detected
+  - data$marks: A vector representing the hydrophone indices that detected the calls. Each element indicates which hydrophone recorded the corresponding call time in data$ts
  
 
 ### Step 1. Fit the multivariate Hawkes process models to the dataset 
