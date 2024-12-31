@@ -11,10 +11,10 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 ## Simulation study
 
 ### Step 1. Simulate data
-- `dataNHPP.R`: Generate a dataset from the model (i) NHPP
-- `dataNHPPSE.R`: Generate a dataset from the model (ii) NHPP+E
-- `dataLGCP.R`: Generate a dataset from the model (iii) NHPP+GP
-- `dataLGCPSE.R`: Generate a dataset from the model (iv) NHPP+GP+E
+- `sim/dataNHPP.R`: Generate a dataset from the model (i) NHPP
+- `sim/dataNHPPSE.R`: Generate a dataset from the model (ii) NHPP+E
+- `sim/dataLGCP.R`: Generate a dataset from the model (iii) NHPP+GP
+- `sim/dataLGCPSE.R`: Generate a dataset from the model (iv) NHPP+GP+E
 - The simulated datasets are saved in the directory `/sim/data`
 
 ### Step 2. Fit the multivariate Hawkes process models to the simulated datasets 
