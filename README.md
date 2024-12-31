@@ -133,5 +133,5 @@ We suggest using the burn-in period determined based on the trace plot of the lo
 
 ### Step 6. Estimate the intensity of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
-- `lamLGCPSE.R`: Compute the posterior quantile estimates (0.025, 0.5, 0.975) for the intensity of total calls, contact calls, and countercalls received across MARUs, and generate supplemental Figures S2 and S3
-- `sumLamM4.R`
+- `lamLGCPSE.R`: Compute the posterior quantile estimates (0.025, 0.5, 0.975) for the intensity of total calls, contact calls, and countercalls received across MARUs for the model (iv) NHPP+GP+E
+- `sumLamM4.R`: Generate supplemental Figures S2 and S3 for the model (iv) NHPP+GP+E
