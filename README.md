@@ -6,20 +6,7 @@ Detailed instructions for implementing the proposed multivariate Hawkes process 
 ## Required packages
 The code has been tested with R version 4.4.0, "Puppy Cup."  The following R packages must be installed before the code will run successfully.
 
-- `Rcpp`
-- `RcppArmadillo`
-- `foreach`
-- `batchmeans`
-- `tidyverse`
-- `readr`
-- `coda`
-- `egg`
-- `grid`
-- `xtable`
-- `sf`
-- `tigris`
-- `suncalc`
-- `cowplot`
+`Rcpp`, `RcppArmadillo`, `foreach`, `batchmeans`, `tidyverse`, `readr`, `coda`, `egg`, `grid`, `xtable`, `sf`, `tigris`, `suncalc`, `cowplot`
 
 ## Simulation study
 
