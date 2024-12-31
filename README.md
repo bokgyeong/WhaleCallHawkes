@@ -55,14 +55,23 @@ The code has been tested with R version 4.4.0, "Puppy Cup."  The following R pac
 - `rtctNHPP.R`, `rtctNHPPSE.R`, `rtctLGCP.R`, `rtctLGCPSE.R`: Evaluate $d^{\ast}_{b,i}$ for each model fitted to the simulated datasets
 - The results are saved in the directory `/sim/rtct`
 
-#### Obtain the Q-Q plot and mean squared difference (MSD) for RTCT
-- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties, and generate Figure 4 and Table 1 as presented in the paper
+#### Obtain Q-Q plot and mean squared difference (MSD) for RTCT
+- `sumRTCT.R`: Calculate the posterior mean estimates of the order statistics $\{d_{(i)}^{*}\}$, along with their associated uncertainties and generate Figure 4 and Table 1 as presented in the paper
 
-### Step 5: 
+### Step 5: Perform inference using a compensator
 
 #### Evaluate the expected number of calls
 - We suggest using the burn-in period determined based on the trace plot of the loglikelihood chain
-- `numNHPP.R`, `numNHPPSE.R`, `numLGCP.R`, `numLGCPSE.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls for each model fitted to the simulated datasets
+- `numNHPP.R`, `numNHPPSE.R`, `numLGCP.R`, `numLGCPSE.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls received at each hydrophone for each model fitted to the simulated datasets
 - The results are saved in the directory `/sim/num`
 
-### 
+#### Obtain the empirical posterior distributions for the expected number of total calls, contact calls, and countercalls
+- `sumNum.R`: Evaluate the expected total number of calls, expected number of contact calls, expected number of countercalls received across hydrophones and create Figure 5 as outlined in the paper
+
+
+
+
+
+
+
+
